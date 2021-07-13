@@ -145,10 +145,6 @@ fenix:
       type: glean_ping_explore
       views:
         base_view: creditcards_sync
-    events:
-      type: glean_ping_explore
-      views:
-        base_view: events
     first_session:
       type: glean_ping_explore
       views:
@@ -327,15 +323,6 @@ fenix:
       - channel: release
         table: mozdata.org_mozilla_firefox.event_types
       type: table_view
-    events:
-      tables:
-      - channel: release
-        table: mozdata.org_mozilla_firefox.events
-      - channel: beta
-        table: mozdata.org_mozilla_firefox_beta.events
-      - channel: nightly
-        table: mozdata.org_mozilla_fenix.events
-      type: glean_ping_view
     events_daily_table:
       tables:
       - channel: release
@@ -538,6 +525,47 @@ fenix:
       - channel: nightly
         table: mozdata.org_mozilla_fenix.tabs_sync
       type: table_view
+firefox_accounts:
+  explores:
+    event_counts:
+      type: events_explore
+      views:
+        base_view: events
+        extended_view: fxa_events_table
+    funnel_analysis:
+      type: funnel_analysis_explore
+      views:
+        base_view: funnel_analysis
+  glean_app: false
+  owners:
+  - loines@mozilla.com
+  pretty_name: Firefox Accounts
+  spoke: looker-spoke-default
+  views:
+    events:
+      tables:
+      - base_table: mozdata.firefox_accounts.fxa_content_auth_oauth_events
+        events_table_view: fxa_events_table
+      type: events_view
+    events_daily_table:
+      tables:
+      - channel: release
+        table: mozdata.firefox_accounts.events_daily
+      type: table_view
+    funnel_analysis:
+      tables:
+      - event_types: mozdata.firefox_accounts.event_types
+        funnel_analysis: events_daily_table
+        step_1: event_types
+        step_2: event_types
+        step_3: event_types
+        step_4: event_types
+      type: funnel_analysis_view
+    fxa_events_table:
+      tables:
+      - channel: release
+        table: mozdata.firefox_accounts.fxa_content_auth_oauth_events
+      type: table_view
 firefox_ios:
   explores:
     baseline:
@@ -549,10 +577,6 @@ firefox_ios:
       views:
         base_view: client_counts
         extended_view: baseline_clients_daily_table
-    events:
-      type: glean_ping_explore
-      views:
-        base_view: events
     growth_accounting:
       type: growth_accounting_explore
       views:
@@ -618,15 +642,6 @@ firefox_ios:
       tables:
       - table: mozdata.org_mozilla_ios_firefox.baseline_clients_daily
       type: client_counts_view
-    events:
-      tables:
-      - channel: release
-        table: mozdata.org_mozilla_ios_firefox.events
-      - channel: beta
-        table: mozdata.org_mozilla_ios_firefoxbeta.events
-      - channel: nightly
-        table: mozdata.org_mozilla_ios_fennec.events
-      type: glean_ping_view
     events_table:
       tables:
       - channel: release

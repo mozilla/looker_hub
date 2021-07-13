@@ -1,4 +1,4 @@
-view: fission     {
+view: fission {
   derived_table: {
     sql: SELECT *
 FROM `moz-fx-data-shared-prod.operational_monitoring.bug_1660366_pref_ongoing_fission_nightly_experiment_nightly_83_100`
@@ -23,13 +23,13 @@ WHERE PARSE_DATE('%Y%m%d', CAST(build_id AS STRING)) >
   }
 
   dimension: cores_count {
-    type: STRING
     sql: ${TABLE}.cores_count ;;
+    type: string
   }
 
   dimension: os {
-    type: STRING
     sql: ${TABLE}.os ;;
+    type: string
   }
 
   measure: median {

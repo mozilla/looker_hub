@@ -165,6 +165,13 @@ view: metrics_table {
     group_item_label: "X Debug Id"
   }
 
+  dimension: metadata__header__x_foxsec_ip_reputation {
+    sql: ${TABLE}.metadata.header.x_foxsec_ip_reputation ;;
+    type: string
+    group_label: "Metadata Header"
+    group_item_label: "X Foxsec Ip Reputation"
+  }
+
   dimension: metadata__header__x_pingsender_version {
     sql: ${TABLE}.metadata.header.x_pingsender_version ;;
     type: string
@@ -762,6 +769,18 @@ view: metrics_table {
     hidden: yes
   }
 
+  dimension: metrics__custom_distribution__performance_clone_deserialize_items__sum {
+    sql: ${TABLE}.metrics.custom_distribution.performance_clone_deserialize_items.sum ;;
+    type: number
+    group_label: "Metrics Custom Distribution Performance Clone Deserialize Items"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__custom_distribution__performance_clone_deserialize_items__values {
+    sql: ${TABLE}.metrics.custom_distribution.performance_clone_deserialize_items.values ;;
+    hidden: yes
+  }
+
   dimension: metrics__datetime__glean_validation_first_run_hour {
     sql: ${TABLE}.metrics.datetime.glean_validation_first_run_hour ;;
     type: string
@@ -937,6 +956,18 @@ view: metrics_table {
 
   dimension: metrics__memory_distribution__glean_upload_pending_pings_directory_size__values {
     sql: ${TABLE}.metrics.memory_distribution.glean_upload_pending_pings_directory_size.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__memory_distribution__performance_clone_deserialize_size__sum {
+    sql: ${TABLE}.metrics.memory_distribution.performance_clone_deserialize_size.sum ;;
+    type: number
+    group_label: "Metrics Memory Distribution Performance Clone Deserialize Size"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__memory_distribution__performance_clone_deserialize_size__values {
+    sql: ${TABLE}.metrics.memory_distribution.performance_clone_deserialize_size.values ;;
     hidden: yes
   }
 
@@ -4759,6 +4790,58 @@ view: metrics_table {
 
   dimension: metrics__timing_distribution__perf_startup_home_fragment_on_view_created__values {
     sql: ${TABLE}.metrics.timing_distribution.perf_startup_home_fragment_on_view_created.values ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__bucket_count {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.bucket_count ;;
+    type: number
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Bucket Count"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__histogram_type {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.histogram_type ;;
+    type: string
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Histogram Type"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__overflow {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.overflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Overflow"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__range {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.range ;;
+    hidden: yes
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__sum {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.sum ;;
+    type: number
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Sum"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__time_unit {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.time_unit ;;
+    type: string
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Time Unit"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__underflow {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.underflow ;;
+    type: number
+    group_label: "Metrics Timing Distribution Performance Clone Deserialize Time"
+    group_item_label: "Underflow"
+  }
+
+  dimension: metrics__timing_distribution__performance_clone_deserialize_time__values {
+    sql: ${TABLE}.metrics.timing_distribution.performance_clone_deserialize_time.values ;;
     hidden: yes
   }
 

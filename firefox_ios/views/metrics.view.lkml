@@ -425,7 +425,8 @@ from awesomebar.
     }
 
     description: "Counts when user opens Firefox Home from
-bottom right hamburger menu Home button.
+bottom right hamburger menu Home button
+and New Tab button.
 "
   }
 
@@ -2031,6 +2032,13 @@ documented in the ping's pings.yaml file.
     type: string
     group_label: "Metadata Header"
     group_item_label: "X Debug Id"
+  }
+
+  dimension: metadata__header__x_foxsec_ip_reputation {
+    sql: ${TABLE}.metadata.header.x_foxsec_ip_reputation ;;
+    type: string
+    group_label: "Metadata Header"
+    group_item_label: "X Foxsec Ip Reputation"
   }
 
   dimension: metadata__header__x_pingsender_version {
